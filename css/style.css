@@ -1,0 +1,443 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+:root {
+    --clr-bg-header: #CF2C2F;
+    --clr-btn: #CF2C2F;
+    --clr-dropdown: #CF2C2F;
+    --clr-nav-hover: #1E6F5C;
+    --clr-dropdown-hov: #289672;
+    --clr-dropdown-link-hov: #bb5729;
+    --clr-light: #FAFAFA;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+header {
+    position: sticky;
+    top: 0px;
+    background-color: var(--clr-bg-header);
+    width: 100%;
+    z-index: 1000;
+}
+
+section {
+    height: calc(100vh - 2.5rem);
+    width: 100%;
+}
+
+/* HERO */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+}
+
+.hero_title_1,
+.hero_title {
+    color: #fff;
+    font-size: 32px;
+    text-shadow: 0 0 3px white;
+    letter-spacing: 2px;
+    background-color: #CF2C2F90;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.back_image_1 {
+    background: url("https://brightwatergroup.com/media/2280/reasons-to-keep-reading-books-relate-to-others.jpg?width=930&height=465") no-repeat top center / cover;
+}
+
+
+.container {
+    max-width: 65rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+
+/* HEADER */
+.logo_container {
+    display: flex;
+    align-items: center;
+}
+
+.logo_container h3 {
+    color: #fff;
+    letter-spacing: 2px;
+}
+
+.nav_btn {
+    flex: 1;
+    display: flex;
+}
+
+.nav_links {
+    flex: 1;
+}
+
+.nav_links>ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav_link {
+    position: relative;
+}
+
+.nav_link>a {
+    line-height: 3rem;
+    color: var(--clr-light);
+    padding: 0 .8rem;
+    letter-spacing: 2px;
+    font-size: .95rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: .5s;
+}
+
+.nav_link>a>i {
+    margin-left: .2rem;
+}
+
+.nav_link:hover>a {
+    transform: scale(1.1);
+    color: greenyellow;
+}
+
+.dropdown {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 12rem;
+    transform: translateY(10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.dropdown ul {
+    position: relative;
+}
+
+.dropdown-link>a {
+    display: flex;
+    background-color: var(--clr-light);
+    color: var(--clr-dropdown);
+    padding: .5rem 1rem;
+    font-size: .9rem;
+    align-items: center;
+    justify-content: space-between;
+    transition: .3s;
+}
+
+.dropdown-link:hover>a {
+    background-color: var(--clr-dropdown);
+    color: var(--clr-light);
+}
+
+.dropdown-link i {
+    transform: rotate(-90deg);
+}
+
+.arrow {
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    top: -5.5px;
+    left: 32px;
+    background-color: var(--clr-light);
+    transform: rotate(45deg);
+    cursor: pointer;
+    transition: .3s;
+    z-index: -1;
+}
+
+.dropdown-link:first-child:hover~.arrow {
+    background-color: var(--clr-dropdown);
+}
+
+.dropdown-link {
+    position: relative;
+}
+
+.dropdown.second {
+    top: 0;
+    left: 100%;
+    cursor: pointer;
+    transform: translateX(100px);
+}
+
+.dropdown.second .arrow {
+    top: 10px;
+    left: -5.5px;
+}
+
+.nav_link:hover>.dropdown,
+.dropdown-link:hover>.dropdown {
+    transform: translate(0, 0);
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.hamburger-menu-container {
+    flex: 1;
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.hamburger-menu div {
+    width: 1.6rem;
+    height: 3px;
+    border-radius: 3px;
+    background-color: var(--clr-light);
+    position: relative;
+    z-index: 1001;
+    transition: .5s;
+}
+
+.hamburger-menu div:before,
+.hamburger-menu div:after {
+    content: '';
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    background-color: var(--clr-light);
+    border-radius: inherit;
+    transition: inherit;
+}
+
+.hamburger-menu div:before {
+    transform: translateY(-7px);
+}
+
+.hamburger-menu div:after {
+    transform: translateY(7px);
+}
+
+#check {
+    position: absolute;
+    top: 50%;
+    right: 1.5rem;
+    transform: translateY(-50%);
+    width: 2.5rem;
+    height: 2.5rem;
+    z-index: 90000;
+    cursor: pointer;
+    opacity: 0;
+    display: none;
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div {
+    background-color: transparent;
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div:before {
+    transform: translateY(0) rotate(-45deg);
+}
+
+#check:checked~.hamburger-menu-container .hamburger-menu div:after {
+    transform: translateY(0) rotate(45deg);
+}
+
+/* PRICING TABLE */
+.pricing {
+    margin: 25px 0;
+}
+
+.pricing_title {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.pricing_table {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.pricing_table .plan {
+    width: 30%;
+    padding: 25px;
+    border-radius: 10px;
+    background: #CF2C2F10;
+}
+
+.pricing_table .plan .name,
+.pricing_table .plan .price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    text-shadow: 0 0 2px white;
+}
+
+.pricing_table .plan .choose_btn {
+    display: block;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 5px auto;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: 500ms;
+}
+
+.pricing_table .plan .choose_btn:hover {
+    transform: scale(1.1);
+}
+
+.pricing_table .plan .choose_btn {
+    background-color: #CF2C2F;
+}
+
+
+.pricing_table .plan .name {
+    color: #CF2C2F;
+}
+
+
+.pricing_table .plan .features li span {
+    font-size: 14px;
+}
+
+.pricing_table .plan .features li i.fa-check~span {
+    color: green;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.pricing_table .plan .features li i.fa-xmark~span {
+    color: gray;
+    text-decoration: line-through;
+    margin-left: 5px;
+}
+
+.pricing_table .plan .features li .fa-check {
+    color: green;
+}
+
+.pricing_table .plan .features li .fa-xmark {
+    color: red;
+}
+
+/* FOOTER */
+.footer {
+    background: var(--clr-bg-header);
+    color: #fff;
+}
+
+.footer_top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 25px 0;
+}
+
+.footer_section {
+    width: 30%;
+}
+
+.footer_section.links ul li a {
+    color: #fff;
+}
+
+.footer h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.footer p {
+    font-size: 16px;
+}
+
+.contact-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid gray;
+    outline: none;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.contact-input:focus {
+    border: 1px solid #29BB89;
+}
+
+.btn-primary {
+    background-color: #29BB89;
+    color: #fff;
+    border: 2px solid #29BB89;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    transition: 100ms;
+    background-color: transparent;
+}
+
+.footer-bottom {
+    background: #333;
+    text-align: center;
+    padding: 10px 0;
+}
+
+/* ANIMATION */
+@keyframes animation {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
+}
