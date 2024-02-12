@@ -167,4 +167,8 @@
         font-size: 22px;
     }
 
+    .back_image_1 {
+        background: url("https://img.lovepik.com/background/20211030/medium/lovepik-books-mobile-phone-wallpaper-background-image_400470237.jpg") no-repeat top center / cover;
+    }
+
 }
